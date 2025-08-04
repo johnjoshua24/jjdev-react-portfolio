@@ -101,7 +101,7 @@ export const Hero = () => {
           </div>
           <div className="hero-button-container flex items-start justify-start mt-10">
             <a
-              href="/public/CANLAS,JOHNJOSHUA-CV.pdf"
+              href="/public/johnjoshua-canlas-cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
