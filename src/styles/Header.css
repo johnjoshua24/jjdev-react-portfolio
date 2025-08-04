@@ -1,0 +1,333 @@
+.header-container {
+  background-color: transparent;
+  height: 120px;
+  transition: background-image 0.5s ease, backdrop-filter 0.5s ease;
+}
+
+.header-container.scrolled {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.1)
+  );
+}
+
+.nav-sections ul {
+  color: var(--muted-info);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.nav-sections a {
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-sections a:hover {
+  color: #fff;
+}
+
+.nav-sections a::before {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 100%;
+  height: 3px;
+  background-color: var(--button-bg);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.nav-sections a:hover::before {
+  transform: translateX(-50%) scaleX(1);
+  background-color: var(--button-bg);
+}
+
+.nav-sections a.active {
+  color: var(--button-bg) !important;
+}
+
+.button-container button {
+  background-color: var(--button-bg);
+  color: yellow;
+  font-size: 20px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.5s ease-in-out;
+}
+
+.button-container button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #ff6b35;
+  border: none;
+  transition: width 0.4s ease-in-out;
+}
+
+.button-container button:hover::before {
+  width: 100%;
+}
+
+.button-container button span {
+  position: relative;
+  transition: color 0.5s ease-in-out;
+}
+
+.button-container button:hover span {
+  color: #fff;
+}
+
+@keyframes headerFadein {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.headerFade-in {
+  animation: headerFadein 1s ease forwards;
+}
+
+.navbar-toggle {
+  display: none;
+  background: transparent;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  top: 30px;
+  right: 0;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.6)
+  );
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+@media (min-width: 1281px) and (max-width: 1440px) {
+  .logo-container img {
+    width: 100%;
+    max-width: 50%;
+  }
+  .nav-sections ul {
+    font-size: 1.2rem;
+  }
+
+  .button-container button {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .logo-container img {
+    width: 100%;
+    max-width: 40%;
+  }
+
+  .button-container {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .logo-container img {
+    width: 100%;
+    max-width: 38%;
+  }
+
+  .nav-sections ul {
+    font-size: 1.15rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.7rem !important;
+    position: absolute;
+    height: 100vh;
+    width: 400px;
+    top: 0;
+    right: 0;
+    padding: 5rem 1.5rem;
+    background: transparent;
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    background-image: linear-gradient(
+      360deg,
+      rgba(255, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2)
+    );
+    transform: translateX(100vw);
+    transition: all 1s ease;
+    z-index: 900;
+  }
+
+  .nav-sections ul.active {
+    transform: translateX(0);
+  }
+
+  .navbar-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg) translateY(12px);
+  }
+
+  .navbar-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar-toggle.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translateY(-12px);
+  }
+  .button-container {
+    display: none;
+  }
+
+  .navbar-toggle {
+    display: block;
+    z-index: 998;
+  }
+
+  .dark-light-toggle-container{
+    margin-right: 20px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .logo-container img {
+    width: 100%;
+    max-width: 35%;
+  }
+
+  .nav-sections ul {
+    font-size: 1.05rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.4rem !important;
+    position: absolute;
+    height: 100vh;
+    width: 300px;
+    top: 0;
+    right: 0;
+    padding: 5rem 1.5rem;
+    background: transparent;
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    background-image: linear-gradient(
+      360deg,
+      rgba(255, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2)
+    );
+    transform: translateX(100vw);
+    transition: all 1s ease;
+    z-index: 900;
+  }
+
+  .nav-sections ul.active {
+    transform: translateX(0);
+  }
+
+  .navbar-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg) translateY(12px);
+  }
+
+  .navbar-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar-toggle.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translateY(-12px);
+  }
+  .button-container {
+    display: none;
+  }
+
+  .navbar-toggle {
+    display: block;
+    z-index: 998;
+  }
+
+  .dark-light-toggle-container{
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-container img {
+    width: 100%;
+    max-width: 28%;
+  }
+
+  .nav-sections ul {
+    font-size: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem !important;
+    position: absolute;
+    height: 100vh;
+    width: 300px;
+    top: 0;
+    right: 0;
+    padding: 5rem 1.5rem;
+    background: transparent;
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    background-image: linear-gradient(
+      360deg,
+      rgba(255, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2)
+    );
+    transform: translateX(100vw);
+    transition: all 1s ease;
+    z-index: 900;
+  }
+
+  .nav-sections ul.active {
+    transform: translateX(0);
+  }
+
+  .navbar-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg) translateY(12px);
+  }
+
+  .navbar-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar-toggle.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translateY(-12px);
+  }
+  .button-container {
+    display: none;
+  }
+
+  .navbar-toggle {
+    display: block;
+    z-index: 998;
+  }
+  .dark-light-toggle-container{
+    margin-right: 20px;
+  }
+}

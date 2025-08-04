@@ -1,0 +1,86 @@
+:root {
+  --bg-color: #121212;
+  --main-headings: #d72638;
+  --para-color: #f2efea;
+  --button-bg: #d72638;
+  --button-hover: #ff6b35;
+  --muted-info: #b4a5a5;
+  --glow-color: #ff357a;
+}
+
+[data-theme="light"] {
+  --bg-color: #d9dfc6;
+  --para-color: black;
+  --button-bg: #d72638;
+  --muted-info: black;
+}
+
+/* HEADER LIGHT MODE DESIGN */
+[data-theme="light"] .header-container {
+  background-color: var(--bg-color);
+}
+
+[data-theme="light"] .button-container button:hover span {
+  color: black;
+}
+
+[data-theme="light"] .nav-sections a:hover {
+  color: var(--main-headings);
+}
+
+/* HERO LIGHT MODE DESIGN */
+[data-theme="light"] .hero-button-container button:hover span {
+  color: black;
+}
+
+/* PROJECTS LIGHT MODE DESIGN */
+[data-theme="light"] .project-technologies span {
+  color: yellow;
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.7)
+  );
+}
+
+[data-theme="light"] .project-technologies span:hover {
+  background-image: linear-gradient(
+      145deg,
+      rgba(255, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+    ),
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.7), transparent);
+}
+
+/* CONTACT LIGHT MODE DESIGN */
+
+[data-theme="light"] .button-send-container button:hover span {
+  color: black;
+}
+
+/* LOADING ANIMATION LIGHT MODE DESIGN */
+[data-theme="light"] .loading-container {
+  background-color: #d9dfc6;
+}
+
+[data-theme="light"] .loading-bar {
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.7)
+  );
+
+}
+
+[data-theme="light"] .loading-title h1 {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 0,0.8),
+    rgba(0, 0, 0,0.8)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}

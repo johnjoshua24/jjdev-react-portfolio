@@ -1,0 +1,93 @@
+.loading-bar-container {
+  position: relative;
+  width: 60%;
+  height: 50px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.25rem;
+}
+
+.loading-bar {
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 100%;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2)
+  );
+  animation: fillLoadingBar 3s ease-in-out;
+}
+
+@keyframes fillLoadingBar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+
+.loading-title h1 {
+  font-size: 200px;
+  font-weight: bold;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+
+@media (min-width: 1281px) and (max-width: 1440px) {
+  .loading-bar-container{
+    width: 70%;
+  }
+.loading-title h1{
+  font-size: 170px;
+}
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .loading-bar-container{
+    width: 70%;
+  }
+.loading-title h1{
+  font-size: 140px;
+}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .loading-bar-container{
+    width: 70%;
+  }
+.loading-title h1{
+  font-size: 110px;
+}
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+     .loading-bar-container{
+    width: 70%;
+  }
+.loading-title h1{
+  font-size: 70px;
+}
+}
+
+@media (max-width: 480px) {
+     .loading-bar-container{
+    width: 50%;
+  }
+.loading-title h1{
+  font-size: 50px;
+}
+}

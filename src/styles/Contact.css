@@ -1,0 +1,259 @@
+.contact-title-left h1{
+font-size: 80px;
+  color: var(--main-headings);
+  font-weight: bold;
+}
+
+.vertical-line{
+    width: 1px;
+    height: 110px;
+    background-color: var(--main-headings);
+    border: none;
+}
+
+.address-container img, .phone-container img, .email-container img{
+    width: 20px;
+}
+
+.address-container p, .phone-container p, .email-container p{
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.email-container a{
+    text-decoration: none;
+    color: var(--main-headings);
+}
+
+.form-section-left input{
+    border: none;
+    background-color: var(--main-headings);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 50px 10px 10px;
+    width: 100%;
+}
+
+.form-section-left  input:focus ,.form-section-left textarea:focus, .form-section-right textarea:focus{
+    background-color: var(--button-hover);
+    color: black;
+    border: none;
+    outline: 1px solid var(--bg-color);
+}
+
+.form-section-left textarea{
+     border: none;
+    background-color: var(--main-headings);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 50px 10px 10px;
+    width: 100%;
+    min-height: 100px;
+    max-height: 250px;
+}
+
+.form-section-right textarea{
+        border: none;
+    background-color: var(--main-headings);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 50px 10px 10px;
+    width: 100%;
+    min-height: 214px;
+    max-height: 364px;
+}
+
+.button-send-container button{
+    background-color: var(--button-bg);
+    border: none;
+    padding: 5px 20px;
+    color: yellow;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.5s ease;
+}
+
+.button-send-container button::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--button-hover);
+    border: none;
+    transition: width 0.5s ease;
+}
+
+.button-send-container button:hover::before{
+    width: 100%;
+}
+
+.button-send-container button span{
+    position: relative;
+    transition: color 0.5s ease;
+}
+
+.button-send-container button:hover span{
+    color: white;
+}
+
+@media (min-width: 1281px) and (max-width: 1440px) {
+
+.contact-title-left h1{
+    font-size: 3rem;
+}
+
+.vertical-line{
+height: 80px;
+}
+
+.button-send-container button{
+    font-size: 1.2rem;
+}
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+.contact-title-left h1{
+    font-size: 2.8rem;
+}
+
+.vertical-line{
+height: 80px;
+}
+
+.button-send-container button{
+    font-size: 1.15rem;
+}
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+.contact-title-left h1{
+    font-size: 2.4rem;
+}
+
+.vertical-line{
+height: 80px;
+}
+
+.button-send-container button{
+    font-size: 1.1rem;
+}
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .contact-title-left h1{
+    font-size: 2rem;
+    margin-left: 10px;
+}
+
+.vertical-line{
+height: 80px;
+}
+.address-container img, .email-container img, .phone-container img{
+    width: 15px;
+    height: 20px;
+}
+
+.address-container p, .email-container p, .phone-container p{
+    font-size: 10px;
+}
+
+.button-send-container button{
+    font-size: 1.05rem;
+}
+
+.form-section-left input{
+    width: 100%;
+    max-width: 90%;
+     font-size: 12px;
+    font-weight: 700;
+    padding: 8px 40px 8px 8px;
+    margin-left: 10px;
+}
+
+.form-section-left textarea{
+    font-size: 12px;
+    font-weight: 700;
+    padding: 8px 40px 8px 8px;
+    width: 100%;
+    max-width: 90%;
+    min-height: 100px;
+    max-height: 200px;
+    margin-left: 10px;
+}
+
+.form-section-right textarea{
+
+    font-size: 12px;
+    font-weight: 700;
+    padding: 8px 40px 8px 8px;
+    width: 100%;
+    max-width: 90%;
+    min-height: 200px;
+    max-height: 300px;
+    margin-right: 10px;
+}
+}
+
+@media (max-width: 480px) {
+    .contact-title-left h1{
+    font-size: 1.8rem;
+    margin-left: 14px;
+}
+
+.vertical-line{
+height: 80px;
+}
+.address-container img, .email-container img, .phone-container img{
+    width: 12px;
+    height: 18px;
+}
+
+.address-container p, .email-container p, .phone-container p{
+    font-size: 8px;
+}
+
+.button-send-container button{
+    font-size: 1rem;
+}
+
+.form-section-left input{
+    width: 100%;
+    max-width: 90%;
+     font-size: 10px;
+    font-weight: 700;
+    padding: 8px 35px 8px 8px;
+    margin-left: 10px;
+}
+
+.form-section-left textarea{
+    font-size: 10px;
+    font-weight: 700;
+    padding: 8px 35px 8px 8px;
+    width: 100%;
+    max-width: 90%;
+    min-height: 100px;
+    max-height: 180px;
+    margin-left: 10px;
+}
+
+.form-section-right textarea{
+
+    font-size: 12px;
+    font-weight: 700;
+    padding: 8px 40px 8px 8px;
+    width: 100%;
+    max-width: 90%;
+    min-height: 195px;
+    max-height: 276px;
+    margin-right: 10px;
+}
+}

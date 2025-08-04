@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+body, html, #root{
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  min-width: 100%;
+  font-family: "Urbanist", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--muted-info);
+  scroll-behavior: smooth;
+}
+
+* {
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}

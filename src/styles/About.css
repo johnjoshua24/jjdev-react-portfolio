@@ -1,0 +1,92 @@
+.about-title h1{
+    font-size: 80px;
+    font-weight: bold;
+    color: var(--main-headings);
+}
+
+.about-left-section, .about-right-section{
+    width: 100%;
+}
+
+.about-left-section img{
+    max-width: 50%;
+}
+
+.about-right-section p{
+    max-width: 80%;
+    font-size: 40px;
+}
+
+@media (min-width: 1281px) and (max-width: 1440px) {
+ .about-title h1{
+    font-size: 3rem;
+ }
+
+ .about-right-section p{
+    font-size: 1.2rem;
+ }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+ .about-title h1{
+    font-size: 2.8rem;
+ }
+
+ .about-right-section p{
+    font-size: 1.15rem;
+ }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+ .about-title h1{
+    font-size: 2.4rem;
+ }
+
+ .about-left-section img{
+    width: 100%;
+    max-width: 60%;
+ }
+
+ .about-right-section p{
+    font-size: 1.1rem;
+ }
+}
+
+
+@media (min-width: 481px) and (max-width: 767px) {
+.about-sections{
+    padding: 0px 24px;
+}
+
+  .about-title h1{
+    font-size: 1.8rem;
+ }
+
+ .about-left-section{
+ display: none;
+ }
+
+ .about-right-section p{
+    font-size: 1rem;
+    max-width: 100%;
+ }
+}
+
+@media (max-width: 480px) {
+ .about-sections{
+    padding: 0px 24px;
+}
+
+  .about-title h1{
+    font-size: 2rem;
+ }
+
+ .about-left-section{
+ display: none;
+ }
+
+ .about-right-section p{
+    font-size: 1rem;
+    max-width: 100%;
+ }
+}

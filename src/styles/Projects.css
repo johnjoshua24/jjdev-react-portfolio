@@ -1,0 +1,184 @@
+.projects-title h1 {
+  font-size: 80px;
+  color: var(--main-headings);
+  font-weight: bold;
+}
+
+.project-image-sections img{
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+.project-title{
+  color: var(--main-headings);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.project-description{
+  color: var(--muted-info);
+  font-size: 16px;
+  width: 100%;
+}
+
+.project-technologies span {
+  color: yellow;
+  font-size: 18px;
+  background-color: transparent;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.1)
+  );
+  padding: 6px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.project-technologies span:hover {
+  background-image: linear-gradient(
+      145deg,
+      rgba(255, 0, 0, 0.25),
+      rgba(0, 0, 0, 0.15)
+    ),
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.3), transparent);
+  backdrop-filter: blur(30px) brightness(1.1);
+  -webkit-backdrop-filter: blur(30px) brightness(1.1);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    inset 0 0 10px rgba(255, 255, 255, 0.1),
+    0 4px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
+}
+
+@media (min-width: 1281px) and (max-width: 1440px) {
+.projects-title h1{
+  font-size: 3rem;
+}
+
+.project-title{
+  font-size: 1.2rem;
+}
+
+.project-technologies span{
+  font-size: 1.2rem;
+}
+ 
+.project-image-sections img{
+   width: 100%;
+  max-width: 350px;
+}
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .projects-title h1{
+  font-size: 2.8rem;
+}
+
+.project-title{
+  font-size: 1.1rem;
+}
+
+.project-description{
+  font-size: 0.9rem;
+}
+
+.project-technologies span{
+  font-size: 1.1rem;
+}
+ 
+.project-image-sections img{
+   width: 100%;
+  max-width: 300px;
+}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .projects-title h1{
+  font-size: 2.4rem;
+}
+
+.project-title{
+  font-size: 1rem;
+}
+
+.project-description{
+  font-size: 0.9rem;
+}
+
+.project-technologies span{
+  font-size: 1rem;
+}
+ 
+.project-image-sections img{
+   width: 100%;
+  max-width: 280px;
+  margin-left: 10px;
+}
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+      .projects-title h1{
+  font-size: 2rem;
+}
+
+.project-title{
+  font-size: 0.8rem;
+}
+
+.project-description{
+  font-size: 0.7rem;
+}
+
+.project-technologies span{
+  font-size: 0.8rem;
+}
+
+.project-technologies{ 
+  gap: 10px;
+}
+ 
+.project-image-sections img{
+   width: 100%;
+  max-width: 250px;
+  margin-left: 10px;
+}
+}
+
+@media (max-width: 480px) {
+
+        .projects-title h1{
+  font-size: 1.8rem;
+}
+
+.project-title{
+  font-size: 0.7rem;
+}
+
+.project-description{
+  font-size: 0.6rem;
+}
+
+.project-technologies span{
+  font-size: 0.7rem;
+}
+
+.project-technologies{ 
+  gap: 10px;
+}
+ 
+.project-image-sections img{
+   width: 100%;
+  max-width: 210px;
+  margin-left: 10px;
+}
+}
+

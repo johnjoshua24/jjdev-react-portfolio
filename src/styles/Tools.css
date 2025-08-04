@@ -1,0 +1,162 @@
+.tools-title h1 {
+  font-size: 80px;
+  color: var(--main-headings);
+  font-weight: bold;
+}
+
+.tools-right-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.tools-right-section a {
+  flex: 1 1 200px;
+  max-width: 200px;
+  height: 250px;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  transition: transform 0.5s ease;
+}
+
+.tools-right-section a .image-inner {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.5s ease;
+  position: relative;
+}
+
+.tools-right-section a:hover .image-inner {
+  transform: translateY(-12px);
+}
+
+.tools-right-section a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  border: none;
+  transition: transform 1s ease;
+}
+
+.tools-right-section a img:hover {
+  transform: rotate(12deg);
+}
+
+.tools-right-section a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 30px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(215, 38, 56, 0.6) 0%,
+    transparent 80%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.tools-right-section a:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.1);
+}
+
+.tools-left-section p {
+  max-width: 80%;
+  font-size: 40px;
+}
+
+
+@media (min-width: 1281px) and (max-width: 1440px) {
+ .tools-title h1{
+  font-size: 3rem;
+ }
+
+ .tools-left-section p{
+  font-size: 1.2rem;
+ }
+
+
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .tools-title h1{
+    font-size: 2.8rem;
+  }
+
+  .tools-left-section p{
+    font-size: 1.15rem;
+  }
+
+  .tools-right-section a {
+  flex: 1 1 150px;
+  max-width: 150px;
+  height: 160px;
+}
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .tools-title h1{
+    font-size: 2.4rem;
+  }
+
+  .tools-left-section p{
+    font-size: 1.1rem;
+  }
+
+  .tools-right-section a {
+  flex: 1 1 120px;
+  max-width: 120px;
+  height: 150px;
+}
+
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+      .tools-title h1{
+    font-size: 2rem;
+  }
+
+  .tools-left-section p{
+    font-size: 1.05rem;
+    width: 100%;
+  }
+
+  .tools-right-section a {
+  flex: 1 1 70px;
+  max-width: 70px;
+  height: 70px;
+}
+}
+
+@media (max-width: 480px) {
+        .tools-title h1{
+    font-size: 1.8rem;
+  }
+
+  .tools-left-section p{
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .tools-right-section a {
+  flex: 1 1 60px;
+  max-width: 60px;
+  height: 60px;
+}
+}

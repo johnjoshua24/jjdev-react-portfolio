@@ -1,0 +1,17 @@
+.terms-container h1{
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--main-headings);
+}
+
+.terms-container h2{
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--main-headings);
+}
+
+.terms-container p{
+    font-size: 16px;
+    width: 70%;
+    font-weight: 500;
+}

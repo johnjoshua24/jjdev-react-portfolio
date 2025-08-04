@@ -1,0 +1,44 @@
+.footer-container hr{
+    width: 95%;
+    background-color: var(--muted-info);
+}
+.footer-socials a img{
+    width: 40px;
+    height: 100%;
+    transition: transform 0.4s ease;
+}
+
+.footer-socials a img:hover{
+    transform: translateY(-10px);
+}
+
+.footer-logo img{
+    width: 80px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.footer-copyright p{
+    font-size: 14px;
+    font-weight: 200;
+}
+
+.footer-terms-policy a{
+    font-size: 14px;
+    font-weight: 200;
+    text-decoration: underline;
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+ .footer-logo img{
+    width: 100%;
+    max-width: 35%;
+ }
+}
+
+@media (max-width: 480px) {
+  .footer-logo img{
+    width: 100%;
+    max-width: 28%;
+ }
+}
