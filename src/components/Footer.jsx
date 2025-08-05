@@ -11,7 +11,7 @@ const currentYear = new Date().getFullYear();
 const reloadPage = () => window.location.reload();
 
   return (
-    <div className="footer-container flex flex-col items-center justify-center mt-50 mb-2 gap-4">
+    <div className="footer-container flex flex-col items-center justify-center mt-50 gap-4">
         <hr />
         <div className="footer-socials flex items-center justify-center gap-4">
             <a href="https://www.facebook.com/BoyGigil24" target='_blank'><img src={fbicon} /></a>
@@ -31,8 +31,8 @@ const reloadPage = () => window.location.reload();
         </div>
 
         <div className="footer-terms-policy flex gap-6">
-            <Link to="/terms">Terms of Service</Link>
-            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/terms" className='mb-2'>Terms of Service</Link>
+            <Link to="/privacy" className='mb-2'>Privacy Policy</Link>
         </div>
     </div>
   )
