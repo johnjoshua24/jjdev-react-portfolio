@@ -9,12 +9,10 @@ body, html, #root{
   background-color: var(--bg-color);
   color: var(--muted-info);
   scroll-behavior: smooth;
-   /* overflow-x: hidden; */
 }
 
 * {
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-  /* overflow-x: hidden; */
 }
 
 
