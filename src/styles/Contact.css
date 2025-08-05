@@ -24,47 +24,41 @@ font-size: 80px;
     text-decoration: none;
     color: var(--main-headings);
 }
-
-.form-section-left input{
-    border: none;
-    background-color: var(--main-headings);
-    color: white;
-    font-size: 14px;
-    font-weight: 700;
-    padding: 10px 50px 10px 10px;
-    width: 100%;
+/* Shared base styles for all inputs and textareas */
+.form-section-left input,
+.form-section-left textarea,
+.form-section-right textarea {
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 700;
+  padding: 10px 12px; 
+  width: 100%;
+  border: none;
+  background-color: var(--main-headings);
+  color: white;
 }
 
-.form-section-left  input:focus ,.form-section-left textarea:focus, .form-section-right textarea:focus{
-    background-color: var(--button-hover);
-    color: black;
-    border: none;
-    outline: 1px solid var(--bg-color);
+
+.form-section-left input:focus,
+.form-section-left textarea:focus,
+.form-section-right textarea:focus {
+  background-color: var(--button-hover);
+  color: black;
+  outline: 1px solid var(--bg-color);
 }
 
-.form-section-left textarea{
-     border: none;
-    background-color: var(--main-headings);
-    color: white;
-    font-size: 14px;
-    font-weight: 700;
-    padding: 10px 50px 10px 10px;
-    width: 100%;
-    min-height: 100px;
-    max-height: 250px;
+
+.form-section-left textarea {
+  min-height: 100px;
+  max-height: 250px;
 }
 
-.form-section-right textarea{
-        border: none;
-    background-color: var(--main-headings);
-    color: white;
-    font-size: 14px;
-    font-weight: 700;
-    padding: 10px 50px 10px 10px;
-    width: 100%;
-    min-height: 214px;
-    max-height: 364px;
+.form-section-right textarea {
+  min-height: 214px;
+  max-height: 364px;
 }
+
 
 .button-send-container button{
     background-color: var(--button-bg);
