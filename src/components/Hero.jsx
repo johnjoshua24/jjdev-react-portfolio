@@ -12,7 +12,7 @@ const heroTitles = [
   "Welcome to My Portfolio",
 ];
 
-export const Hero = () => {
+const Hero = () => {
   const [index, setIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -123,3 +123,5 @@ export const Hero = () => {
     </div>
   );
 };
+
+export default Hero;

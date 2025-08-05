@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Loading.css";
-import '../globals/global.css'
+import "../globals/global.css";
 
-
-  const titles = ["WELCOME TO", "JJDEV", "PORTFOLIO"];
+const titles = ["WELCOME TO", "JJDEV", "PORTFOLIO"];
 
 const Loading = () => {
-
   const [titleIndex, settitleIndex] = useState(0);
   const [fade, setFade] = useState(true);
 

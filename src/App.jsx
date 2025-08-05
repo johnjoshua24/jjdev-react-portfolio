@@ -1,55 +1,55 @@
 import "./App.css";
-import Header from "./components/Header";
-import { Hero } from "./components/Hero";
-import About from "./components/About";
-import Tools from "./components/Tools";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import TermsOfService from "./components/TermsofService";
-import PrivacyPolicy from "./components/PrivacyPolicy";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
 import Loading from "./components/Loading";
+import LoadingBarFBack from "./components/LoadingBarFBack";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Suspense, useEffect, useState } from "react";
+import React, { lazy } from "react";
 
-
+// Lazy-loaded components
+const About = lazy(() => import("./components/About"));
+const Tools = lazy(() => import("./components/Tools"));
+const Projects = lazy(() => import("./components/Projects"));
+const Contact = lazy(() => import("./components/Contact"));
+const Footer = lazy(() => import("./components/Footer"));
+const TermsOfService = lazy(() => import("./components/TermsofService"));
+const PrivacyPolicy = lazy(() => import("./components/PrivacyPolicy"));
 
 function App() {
-  
-const [isLoading, setisLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
-useEffect(()=>{
-  const timer = setTimeout(()=>{
-    setisLoading(false);
-  }, 3000);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
 
-  return () => clearTimeout(timer);
-},[]);
+    return () => clearTimeout(timer);
+  }, []);
 
-useEffect(() => {
-  const savedMode = localStorage.getItem("selectedTheme") || "dark";
-  document.body.setAttribute("data-theme", savedMode);
-}, []);
+  useEffect(() => {
+    const savedMode = localStorage.getItem("selectedTheme") || "dark";
+    document.body.setAttribute("data-theme", savedMode);
+  }, []);
 
-
-if(isLoading){
-  return <Loading/>;
-}
-
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
-    <>
-      <Router>
+    <Router>
+      <Header />
+      <Hero />
+
+      <Suspense fallback={<LoadingBarFBack />}>
         <Routes>
           <Route
             path="/"
             element={
               <>
-                <Header/>
-                <Hero/>
                 <About />
                 <Tools />
-                <Projects/>
+                <Projects />
                 <Contact />
               </>
             }
@@ -57,9 +57,10 @@ if(isLoading){
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
         </Routes>
+
         <Footer />
-      </Router>
-    </>
+      </Suspense>
+    </Router>
   );
 }
 
