@@ -29,7 +29,7 @@ const Tools = () => {
     { stiffness: 60, damping: 15 }
   );
   const toolsParagraphSlideSpringXAnimation = useSpring(
-    useTransform(scrollYProgress, [0, 1], [-200, 0]),
+    useTransform(scrollYProgress, [0, 1], [-50, 0]),
     { stiffness: 60, damping: 15 }
   );
 

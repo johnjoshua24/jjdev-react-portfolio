@@ -4,7 +4,7 @@ import locationicon from "../assets/location-icon.png";
 import callicon from "../assets/call-icon.png";
 import emailicon from "../assets/email-icon.png";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import '../globals/global.css'
+import "../globals/global.css";
 
 const Contact = () => {
   const [result, setResult] = React.useState("");
@@ -34,34 +34,72 @@ const Contact = () => {
   };
 
   const contactContainerRef = useRef(null);
-  const {scrollYProgress} = useScroll({
-     target: contactContainerRef,
+  const { scrollYProgress } = useScroll({
+    target: contactContainerRef,
     offset: ["start end", "end end"],
   });
-  const contactTitleOpacityAnimation = useSpring(useTransform(scrollYProgress, [0,1], [0,1]),{stiffness:60, damping: 15});
-   const contactTitleSlideAnimation = useSpring(useTransform(scrollYProgress, [0,1], [-200,0]),{stiffness:60, damping: 15});
+  const contactTitleOpacityAnimation = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, 1]),
+    { stiffness: 60, damping: 15 }
+  );
+  const contactTitleSlideAnimation = useSpring(
+    useTransform(scrollYProgress, [0, 1], [-70, 0]),
+    { stiffness: 60, damping: 15 }
+  );
 
-    const contactInfoOpacityAnimation = useSpring(useTransform(scrollYProgress, [0,1], [0,1]),{stiffness:60, damping: 15});
-   const contactInfoSlideAnimation = useSpring(useTransform(scrollYProgress, [0,1], [200,0]),{stiffness:60, damping: 15});
+  const contactInfoOpacityAnimation = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, 1]),
+    { stiffness: 60, damping: 15 }
+  );
+  const contactInfoSlideAnimation = useSpring(
+    useTransform(scrollYProgress, [0, 1], [-70, 0]),
+    { stiffness: 60, damping: 15 }
+  );
 
-      const nameEmailSubjectOpacityAnimation = useSpring(useTransform(scrollYProgress, [0.6,1], [0,1]),{stiffness:60, damping: 15});
-   const nameEmailSubjectSlideAnimation = useSpring(useTransform(scrollYProgress, [0.6,1], [-200,0]),{stiffness:60, damping: 15});
+  const nameEmailSubjectOpacityAnimation = useSpring(
+    useTransform(scrollYProgress, [0.6, 1], [0, 1]),
+    { stiffness: 60, damping: 15 }
+  );
 
-      const messageOpacityAnimation = useSpring(useTransform(scrollYProgress, [0.6,1], [0,1]),{stiffness:60, damping: 15});
-   const messageSlideAnimation = useSpring(useTransform(scrollYProgress, [0.6,1], [200,0]),{stiffness:60, damping: 15});
+  const messageOpacityAnimation = useSpring(
+    useTransform(scrollYProgress, [0.6, 1], [0, 1]),
+    { stiffness: 60, damping: 15 }
+  );
 
-      const sendBtnOpacityAnimation = useSpring(useTransform(scrollYProgress, [0,1], [0,1]),{stiffness:60, damping: 15});
-   const sendBtnSlideAnimation = useSpring(useTransform(scrollYProgress, [0,1], [50,0]),{stiffness:60, damping: 15});
+  const sendBtnOpacityAnimation = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, 1]),
+    { stiffness: 60, damping: 15 }
+  );
+  const sendBtnSlideAnimation = useSpring(
+    useTransform(scrollYProgress, [0, 1], [-50, 0]),
+    { stiffness: 60, damping: 15 }
+  );
 
   return (
-    <div className="contact-container flex flex-col align-center justify-center mb-50" id="contact-section" ref={contactContainerRef}>
+    <div
+      className="contact-container flex flex-col align-center justify-center mb-50"
+      id="contact-section"
+      ref={contactContainerRef}
+    >
       <div className="contact-title-sections flex align-center justify-center gap-1">
-        <motion.div className="contact-title-left flex align-center justify-center pr-4" style={{opacity: contactTitleOpacityAnimation, x: contactTitleSlideAnimation}}>
+        <motion.div
+          className="contact-title-left flex align-center justify-center pr-4"
+          style={{
+            opacity: contactTitleOpacityAnimation,
+            y: contactTitleSlideAnimation,
+          }}
+        >
           <h1>CONTACT ME</h1>
         </motion.div>
         <hr className="vertical-line mt-1" />
         <hr className="vertical-line mt-1" />
-        <motion.div className="contact-title-right flex flex-col align-center justify-center gap-4 pl-4" style={{opacity: contactInfoOpacityAnimation, x: contactInfoSlideAnimation}}>
+        <motion.div
+          className="contact-title-right flex flex-col align-center justify-center gap-4 pl-4"
+          style={{
+            opacity: contactInfoOpacityAnimation,
+            y: contactInfoSlideAnimation,
+          }}
+        >
           <div className="address-container flex gap-3">
             <img src={locationicon} />
             <p>
@@ -91,21 +129,24 @@ const Contact = () => {
       >
         <div className="form-container-sections flex gap-4">
           <div className="form-section-left flex flex-col gap-4">
-            <motion.input style={{opacity: nameEmailSubjectOpacityAnimation, x: nameEmailSubjectSlideAnimation}}
+            <motion.input
+              style={{ opacity: nameEmailSubjectOpacityAnimation }}
               type="text"
               name="name"
               id="name"
               placeholder="Your Name/Company Name"
               required
             />
-            <motion.input style={{opacity: nameEmailSubjectOpacityAnimation, x: nameEmailSubjectSlideAnimation}}
+            <motion.input
+              style={{ opacity: nameEmailSubjectOpacityAnimation }}
               type="email"
               name="email"
               id="email"
               placeholder="Your email address"
               required
             />
-            <motion.textarea style={{opacity: nameEmailSubjectOpacityAnimation, x: nameEmailSubjectSlideAnimation}}
+            <motion.textarea
+              style={{ opacity: nameEmailSubjectOpacityAnimation }}
               name="subject"
               id="subject"
               placeholder="Subject"
@@ -124,21 +165,28 @@ const Contact = () => {
               autoComplete="off"
             />
           </div>
-          <motion.div className="form-section-right" style={{opacity: messageOpacityAnimation, x: messageSlideAnimation}}>
-            <textarea
+          <div className="form-section-right">
+            <motion.textarea
               name="message"
               id="message"
               placeholder="Type your message here..."
               pattern="^[a-zA-Z\s]*$"
-            ></textarea>
-          </motion.div>
+              style={{ opacity: messageOpacityAnimation }}
+            ></motion.textarea>
+          </div>
         </div>
 
-        <motion.div className="button-send-container flex items-center justify-center mt-4" style={{opacity: sendBtnOpacityAnimation, y: sendBtnSlideAnimation}}>
-          <button type="submit">
+        <div className="button-send-container flex items-center justify-center mt-4">
+          <motion.button
+            type="submit"
+            style={{
+              opacity: sendBtnOpacityAnimation,
+              y: sendBtnSlideAnimation,
+            }}
+          >
             <span>Send</span>
-          </button>
-        </motion.div>
+          </motion.button>
+        </div>
       </form>
     </div>
   );

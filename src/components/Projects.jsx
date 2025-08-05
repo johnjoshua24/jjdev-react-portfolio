@@ -39,16 +39,16 @@ offset: ["start end", "end end"],
 });
 
 const projectsImageOpacityAnimation = useSpring(useTransform(scrollYProgress, [0,1],[0,1]),{stiffness: 60, damping: 15});
-const projectsImageSlideAnimation = useSpring(useTransform(scrollYProgress, [0,1],[-200,0]),{stiffness: 60, damping: 15});
+const projectsImageSlideAnimation = useSpring(useTransform(scrollYProgress, [0,1],[-50,0]),{stiffness: 60, damping: 15});
 
 const projectsTitleOpacityAnimation = useSpring(useTransform(scrollYProgress, [0.2,1],[0,1]),{stiffness: 60, damping: 15});
-const projectsTitleSlideAnimation = useSpring(useTransform(scrollYProgress, [0.2,1],[-200,0]),{stiffness: 60, damping: 15});
+const projectsTitleSlideAnimation = useSpring(useTransform(scrollYProgress, [0.2,1],[-50,0]),{stiffness: 60, damping: 15});
 
 const projectsDescriptionOpacityAnimation = useSpring(useTransform(scrollYProgress, [0.6,1],[0,1]),{stiffness: 60, damping: 15});
-const projectsDescriptionSlideAnimation = useSpring(useTransform(scrollYProgress, [0.6,1],[-200,0]),{stiffness: 60, damping: 15});
+const projectsDescriptionSlideAnimation = useSpring(useTransform(scrollYProgress, [0.6,1],[-50,0]),{stiffness: 60, damping: 15});
 
 const projectsTechnologiesOpacityAnimation = useSpring(useTransform(scrollYProgress, [0.8,1],[0,1]),{stiffness: 60, damping: 15});
-const projectsTechnologiesSlideAnimation = useSpring(useTransform(scrollYProgress, [0.8,1],[-200,0]),{stiffness: 60, damping: 15});
+const projectsTechnologiesSlideAnimation = useSpring(useTransform(scrollYProgress, [0.8,1],[-50,0]),{stiffness: 60, damping: 15});
 
   return (
     <div className="projects-template-container flex items-center justify-center mt-10" ref={projectTemplateContainerRef}>

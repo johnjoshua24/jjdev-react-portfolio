@@ -23,8 +23,8 @@ const About = () => {
     useTransform(scrollYProgress, [0.2, 0.8], [0, 1]),
     { stiffness: 60, damping: 15 }
   );
-  const smoothParagraphX = useSpring(
-    useTransform(scrollYProgress, [0.2, 0.8], [200, 0]),
+  const smoothParagraphY = useSpring(
+    useTransform(scrollYProgress, [0.2, 0.8], [50, 0]),
     { stiffness: 60, damping: 15 }
   );
 
@@ -32,8 +32,8 @@ const About = () => {
     useTransform(scrollYProgress, [0.2, 0.8], [0, 1]),
     { stiffness: 60, damping: 15 }
   );
-  const smoothImageX = useSpring(
-    useTransform(scrollYProgress, [0.2, 0.8], [-200, 0]),
+  const smoothImageY = useSpring(
+    useTransform(scrollYProgress, [0.2, 0.8], [50, 0]),
     { stiffness: 60, damping: 15 }
   );
 
@@ -52,12 +52,12 @@ const About = () => {
         <div className="about-left-section flex items-center justify-center">
           <motion.img
             src={aboutimg}
-            style={{ opacity: smoothImageOpacity, x: smoothImageX }}
+            style={{ opacity: smoothImageOpacity, y: smoothImageY }}
           />
         </div>
         <div className="about-right-section flex items-center justify-start">
           <motion.p
-            style={{ opacity: smoothParagraphOpacity, x: smoothParagraphX }}
+            style={{ opacity: smoothParagraphOpacity, y: smoothParagraphY }}
           >
             I'm an aspiring front-end developer looking to get some practical
             experience and advance in this dynamic industry. Building
