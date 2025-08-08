@@ -33,69 +33,68 @@ const Tools = () => {
     { stiffness: 60, damping: 15 }
   );
 
- const htmlScale = useSpring(
-  useTransform(scrollYProgress, [0.2, 1], [0, 1]),
-  { stiffness: 60, damping: 15 }
-);
-const htmlOpacity = useSpring(
-  useTransform(scrollYProgress, [0.2, 1], [0, 1]),
-  { stiffness: 60, damping: 15 }
-);
+  const htmlScale = useSpring(useTransform(scrollYProgress, [0.2, 1], [0, 1]), {
+    stiffness: 60,
+    damping: 15,
+  });
+  const htmlOpacity = useSpring(
+    useTransform(scrollYProgress, [0.2, 1], [0, 1]),
+    { stiffness: 60, damping: 15 }
+  );
 
-const cssScale = useSpring(
-  useTransform(scrollYProgress, [0.35, 1], [0, 1]),
-  { stiffness: 60, damping: 15 }
-);
-const cssOpacity = useSpring(
-  useTransform(scrollYProgress, [0.35, 1], [0, 1]),
-  { stiffness: 60, damping: 15 }
-);
+  const cssScale = useSpring(useTransform(scrollYProgress, [0.35, 1], [0, 1]), {
+    stiffness: 60,
+    damping: 15,
+  });
+  const cssOpacity = useSpring(
+    useTransform(scrollYProgress, [0.35, 1], [0, 1]),
+    { stiffness: 60, damping: 15 }
+  );
 
-const jsScale = useSpring(
-  useTransform(scrollYProgress, [0.5, 1], [0, 1]),
-  { stiffness: 60, damping: 15 }
-);
-const jsOpacity = useSpring(
-  useTransform(scrollYProgress, [0.5, 1], [0, 1]),
-  { stiffness: 60, damping: 15 }
-);
+  const jsScale = useSpring(useTransform(scrollYProgress, [0.5, 1], [0, 1]), {
+    stiffness: 60,
+    damping: 15,
+  });
+  const jsOpacity = useSpring(useTransform(scrollYProgress, [0.5, 1], [0, 1]), {
+    stiffness: 60,
+    damping: 15,
+  });
 
-const reactScale = useSpring(
-  useTransform(scrollYProgress, [0.65, 1], [0, 1]),
-  { stiffness: 60, damping: 15 }
-);
-const reactOpacity = useSpring(
-  useTransform(scrollYProgress, [0.65, 1], [0, 1]),
-  { stiffness: 60, damping: 15 }
-);
+  const reactScale = useSpring(
+    useTransform(scrollYProgress, [0.65, 1], [0, 1]),
+    { stiffness: 60, damping: 15 }
+  );
+  const reactOpacity = useSpring(
+    useTransform(scrollYProgress, [0.65, 1], [0, 1]),
+    { stiffness: 60, damping: 15 }
+  );
 
-const wordpressScale = useSpring(
-  useTransform(scrollYProgress, [0.8, 1], [0, 1]),
-  { stiffness: 60, damping: 15 }
-);
-const wordpressOpacity = useSpring(
-  useTransform(scrollYProgress, [0.8, 1], [0, 1]),
-  { stiffness: 60, damping: 15 }
-);
+  const wordpressScale = useSpring(
+    useTransform(scrollYProgress, [0.8, 1], [0, 1]),
+    { stiffness: 60, damping: 15 }
+  );
+  const wordpressOpacity = useSpring(
+    useTransform(scrollYProgress, [0.8, 1], [0, 1]),
+    { stiffness: 60, damping: 15 }
+  );
 
-const elementorScale = useSpring(
-  useTransform(scrollYProgress, [0.9, 1], [0, 1]),
-  { stiffness: 60, damping: 15 }
-);
-const elementorOpacity = useSpring(
-  useTransform(scrollYProgress, [0.9, 1], [0, 1]),
-  { stiffness: 60, damping: 15 }
-);
+  const elementorScale = useSpring(
+    useTransform(scrollYProgress, [0.9, 1], [0, 1]),
+    { stiffness: 60, damping: 15 }
+  );
+  const elementorOpacity = useSpring(
+    useTransform(scrollYProgress, [0.9, 1], [0, 1]),
+    { stiffness: 60, damping: 15 }
+  );
 
-const figmaScale = useSpring(
-  useTransform(scrollYProgress, [0.95, 1], [0, 1]),
-  { stiffness: 60, damping: 15 }
-);
-const figmaOpacity = useSpring(
-  useTransform(scrollYProgress, [0.95, 1], [0, 1]),
-  { stiffness: 60, damping: 15 }
-);
-
+  const figmaScale = useSpring(
+    useTransform(scrollYProgress, [0.95, 1], [0, 1]),
+    { stiffness: 60, damping: 15 }
+  );
+  const figmaOpacity = useSpring(
+    useTransform(scrollYProgress, [0.95, 1], [0, 1]),
+    { stiffness: 60, damping: 15 }
+  );
 
   return (
     <div
@@ -135,29 +134,41 @@ const figmaOpacity = useSpring(
             href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content"
             target="_blank"
           >
-            <motion.div className="image-inner" style={{ scale: htmlScale, opacity:  htmlOpacity}}>
-              <img src={html3dlogo} />
+            <motion.div
+              className="image-inner"
+              style={{ scale: htmlScale, opacity: htmlOpacity }}
+            >
+              <img src={html3dlogo} alt="HTML 3D Logo" loading="lazy" />
             </motion.div>
           </a>
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/CSS"
             target="_blank"
           >
-            <motion.div className="image-inner" style={{ scale: cssScale, opacity:  cssOpacity}}>
-              <img src={css3dlogo} />
+            <motion.div
+              className="image-inner"
+              style={{ scale: cssScale, opacity: cssOpacity }}
+            >
+              <img src={css3dlogo} alt="CSS 3D Logo" loading="lazy" />
             </motion.div>
           </a>
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
             target="_blank"
           >
-            <motion.div className="image-inner" style={{ scale: jsScale, opacity:  jsOpacity}}>
-              <img src={js3dlogo} />
+            <motion.div
+              className="image-inner"
+              style={{ scale: jsScale, opacity: jsOpacity }}
+            >
+              <img src={js3dlogo} alt="JavaScript 3D Logo" loading="lazy" />
             </motion.div>
           </a>
           <a href="https://react.dev/" target="_blank">
-            <motion.div className="image-inner" style={{ scale: reactScale, opacity:  reactOpacity}}>
-              <img src={react3dlogo} />
+            <motion.div
+              className="image-inner"
+              style={{ scale: reactScale, opacity: reactOpacity }}
+            >
+              <img src={react3dlogo} alt="React 3D Logo" loading="lazy" />
             </motion.div>
           </a>
           <a
@@ -166,9 +177,13 @@ const figmaOpacity = useSpring(
           >
             <motion.div
               className="image-inner"
-              style={{ scale: wordpressScale, opacity:  wordpressOpacity}}
+              style={{ scale: wordpressScale, opacity: wordpressOpacity }}
             >
-              <img src={wordpress3dlogo} />
+              <img
+                src={wordpress3dlogo}
+                alt="WordPress 3D Logo"
+                loading="lazy"
+              />
             </motion.div>
           </a>
           <a
@@ -177,17 +192,24 @@ const figmaOpacity = useSpring(
           >
             <motion.div
               className="image-inner"
-              style={{ scale: elementorScale, opacity:  elementorOpacity}}
+              style={{ scale: elementorScale, opacity: elementorOpacity }}
             >
-              <img src={elementor3dlogo} />
+              <img
+                src={elementor3dlogo}
+                alt="Elementor 3D Logo"
+                loading="lazy"
+              />
             </motion.div>
           </a>
           <a
             href="https://www.nobledesktop.com/learn/figma/what-is-figma"
             target="_blank"
           >
-            <motion.div className="image-inner" style={{ scale: figmaScale, opacity:  figmaOpacity}}>
-              <img src={figma3dlogo} />
+            <motion.div
+              className="image-inner"
+              style={{ scale: figmaScale, opacity: figmaOpacity }}
+            >
+              <img src={figma3dlogo} alt="Figma 3D Logo" loading="lazy" />
             </motion.div>
           </a>
         </div>

@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 import "../styles/About.css";
 import aboutimg from "../assets/about-pic.JPG";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const About = () => {
   const containerAnimationReference = useRef(null);
@@ -49,12 +51,17 @@ const About = () => {
         </motion.h1>
       </div>
       <div className="about-sections flex items-center justify-center mt-10">
-        <div className="about-left-section flex items-center justify-center">
-          <motion.img
+        <motion.div
+          className="about-left-section flex items-center justify-center"
+          style={{ opacity: smoothImageOpacity, y: smoothImageY }}
+        >
+          <LazyLoadImage
             src={aboutimg}
-            style={{ opacity: smoothImageOpacity, y: smoothImageY }}
+            alt="About"
+            effect="blur"
+            className="w-full max-w-md mx-auto"
           />
-        </div>
+        </motion.div>
         <div className="about-right-section flex items-center justify-start">
           <motion.p
             style={{ opacity: smoothParagraphOpacity, y: smoothParagraphY }}

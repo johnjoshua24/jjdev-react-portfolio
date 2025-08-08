@@ -114,7 +114,7 @@ const Hero = () => {
 
         <div className="right-section heroRightFade-in flex items-center justify-center mt-20 w-full">
           <div className="hero-image flex items-center justify-center">
-            <img src={heroimage} />
+            <img src={heroimage} alt="Hero Section Image"/>
           </div>
         </div>
       </div>

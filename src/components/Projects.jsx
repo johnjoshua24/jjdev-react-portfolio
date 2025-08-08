@@ -5,6 +5,8 @@ import coming2 from "../assets/coming-soon2.jpg";
 import coming3 from "../assets/coming-soon3.jpg";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import '../globals/global.css'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const projectsData = [
   {
@@ -54,7 +56,12 @@ const projectsTechnologiesSlideAnimation = useSpring(useTransform(scrollYProgres
     <div className="projects-template-container flex items-center justify-center mt-10" ref={projectTemplateContainerRef}>
       <div className="template-sections flex items-center justify-center gap-5">
         <motion.div className="project-image-sections flex items-center gap-5" style={{opacity: projectsImageOpacityAnimation, x: projectsImageSlideAnimation}}>
-          <img src={project.projectImage} alt={project.projectTitle} />
+           <LazyLoadImage
+    src={project.projectImage}
+    alt={project.projectTitle}
+    effect="blur"     
+    wrapperClassName="" 
+  />
         </motion.div>
 
         <div className="project-texts-descriptions flex flex-col justify-center gap-6 w-full max-w-[500px]">

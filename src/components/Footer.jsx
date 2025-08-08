@@ -1,41 +1,58 @@
-import React from 'react'
-import '../styles/Footer.css'
-import fbicon from '../assets/facebook-color-svgrepo-com.svg'
-import igicon from '../assets/instagram-1-svgrepo-com.svg'
-import github from '../assets/github-color-svgrepo-com.svg'
-import footerlogo from '../assets/jjdev-logo.png'
-import { Link } from 'react-router-dom'
+import React from "react";
+import "../styles/Footer.css";
+import fbicon from "../assets/facebook-color-svgrepo-com.svg";
+import igicon from "../assets/instagram-1-svgrepo-com.svg";
+import github from "../assets/github-color-svgrepo-com.svg";
+import footerlogo from "../assets/jjdev-logo.png";
+import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Footer = () => {
-const currentYear = new Date().getFullYear();
-const reloadPage = () => window.location.reload();
+  const currentYear = new Date().getFullYear();
+  const reloadPage = () => window.location.reload();
 
   return (
     <div className="footer-container flex flex-col items-center justify-center mt-50 gap-4">
-        <hr />
-        <div className="footer-socials flex items-center justify-center gap-4">
-            <a href="https://www.facebook.com/BoyGigil24" target='_blank'><img src={fbicon} /></a>
-            <a href="https://www.instagram.com/boygigil24/" target='_blank'><img src={igicon} /></a>
-            <a href="https://github.com/johnjoshua24" target='_blank'><img src={github} /></a>
-        </div>
+      <hr />
+      <div className="footer-socials flex items-center justify-center gap-4">
+        <a href="https://www.facebook.com/BoyGigil24" target="_blank">
+          <img src={fbicon} />
+        </a>
+        <a href="https://www.instagram.com/boygigil24/" target="_blank">
+          <img src={igicon} />
+        </a>
+        <a href="https://github.com/johnjoshua24" target="_blank">
+          <img src={github} />
+        </a>
+      </div>
 
-        <div className="footer-logo flex flex-col items-center justify-center">
-            <img src={footerlogo} onClick={() => {
-    reloadPage();
-    window.location.href = "/";
-  }}/>
-        </div>
+      <div className="footer-logo flex flex-col items-center justify-center">
+        <LazyLoadImage
+          src={footerlogo}
+          alt="Footer Logo"
+          effect="blur"
+          onClick={() => {
+            reloadPage();
+            window.location.href = "/";
+          }}
+        />
+      </div>
 
-        <div className="footer-copyright flex flex-col items-center justify-center">
-            <p>Copyright © {currentYear} JJDEV</p>
-        </div>
+      <div className="footer-copyright flex flex-col items-center justify-center">
+        <p>Copyright © {currentYear} JJDEV</p>
+      </div>
 
-        <div className="footer-terms-policy flex gap-6">
-            <Link to="/terms" className='mb-2'>Terms of Service</Link>
-            <Link to="/privacy" className='mb-2'>Privacy Policy</Link>
-        </div>
+      <div className="footer-terms-policy flex gap-6">
+        <Link to="/terms" className="mb-2">
+          Terms of Service
+        </Link>
+        <Link to="/privacy" className="mb-2">
+          Privacy Policy
+        </Link>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
