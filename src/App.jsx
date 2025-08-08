@@ -6,6 +6,7 @@ import Hero from "./components/Hero";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Suspense, useEffect, useState } from "react";
 import React, { lazy } from "react";
+import NotFound from "./components/NotFound";
 
 // Lazy-loaded components
 const About = lazy(() => import("./components/About"));
@@ -15,7 +16,7 @@ const Contact = lazy(() => import("./components/Contact"));
 const Footer = lazy(() => import("./components/Footer"));
 const TermsOfService = lazy(() => import("./components/TermsofService"));
 const PrivacyPolicy = lazy(() => import("./components/PrivacyPolicy"));
-import NotFound from "./components/NotFound"; // <-- Import your 404 page here
+
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -59,7 +60,7 @@ function App() {
           <Route path="/privacy" element={<PrivacyPolicy />} />
 
           {/* Catch-all route for 404 */}
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFound/>} />
         </Routes>
 
         <Footer />
