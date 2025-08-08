@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import logo from "../assets/jjdev-logo.png";
 import "../styles/Header.css";
 import { Link } from "react-scroll";
@@ -7,46 +7,72 @@ import '../globals/global.css'
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const ticking = useRef(false);
+
+  // Throttled scroll handler using requestAnimationFrame
+  const handleScroll = useCallback(() => {
+    if (!ticking.current) {
+      requestAnimationFrame(() => {
+        const shouldBeScrolled = window.scrollY > 50;
+        if (shouldBeScrolled !== scrolled) {
+          setScrolled(shouldBeScrolled);
+        }
+        ticking.current = false;
+      });
+      ticking.current = true;
+    }
+  }, [scrolled]);
 
   useEffect(() => {
-    function handleScroll() {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll);
+    // Add passive listener for better performance
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+
+  const reloadPage = useCallback(() => {
+    window.location.reload();
   }, []);
 
-  const reloadPage = () => window.location.reload();
+  const handleLogoClick = useCallback(() => {
+    reloadPage();
+    window.location.href = "/";
+  }, [reloadPage]);
 
-  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = useCallback(() => {
+    setMenuOpen(prev => !prev);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    setMenuOpen(false);
+  }, []);
 
   return (
     <div
       className={`header-container headerFade-in flex items-center justify-between p-10 fixed top-0 w-full z-50 ${
         scrolled ? "scrolled" : ""
       }`}
+      style={{
+        // Add CSS properties for smoother rendering
+        transform: 'translateZ(0)', // Force hardware acceleration
+        backfaceVisibility: 'hidden',
+        perspective: '1000px'
+      }}
     >
       <div className="logo-container">
         <img
           className="w-24 h-full object-cover object-center cursor-pointer"
           src={logo}
-          alt=""
-          onClick={() => {
-            reloadPage();
-            window.location.href = "/";
-          }}
+          alt="JJ Dev Logo"
+          onClick={handleLogoClick}
         />
       </div>
 
       <button
         className={`navbar-toggle ${menuOpen ? "active" : ""}`}
-        onClick={() => setMenuOpen((prev) => !prev)}
+        onClick={toggleMenu}
+        aria-label="Toggle navigation menu"
       >
         <span className="bar"></span>
         <span className="bar"></span>
@@ -63,7 +89,7 @@ const Header = () => {
               offset={-90}
               spy={true}
               activeClass="active"
-              onClick={() => setMenuOpen(false)}
+              onClick={closeMenu}
             >
               Home
             </Link>
@@ -76,7 +102,7 @@ const Header = () => {
               offset={-90}
               spy={true}
               activeClass="active"
-              onClick={() => setMenuOpen(false)}
+              onClick={closeMenu}
             >
               About
             </Link>
@@ -89,7 +115,7 @@ const Header = () => {
               offset={-90}
               spy={true}
               activeClass="active"
-              onClick={() => setMenuOpen(false)}
+              onClick={closeMenu}
             >
               Tech
             </Link>
@@ -102,7 +128,7 @@ const Header = () => {
               offset={-90}
               spy={true}
               activeClass="active"
-              onClick={() => setMenuOpen(false)}
+              onClick={closeMenu}
             >
               Projects
             </Link>
@@ -115,7 +141,7 @@ const Header = () => {
               offset={-90}
               spy={true}
               activeClass="active"
-              onClick={() => setMenuOpen(false)}
+              onClick={closeMenu}
             >
               Contact
             </Link>
@@ -131,16 +157,17 @@ const Header = () => {
           offset={-90}
           spy={true}
           activeClass="active"
-          onClick={() => setMenuOpen(false)}
+          onClick={closeMenu}
         >
           <button>
             <span>Connect With Me</span>
           </button>
         </Link>
       </div>
-        <div className="dark-light-toggle-container">
-          <DarkLightMode/>
-        </div>
+      
+      <div className="dark-light-toggle-container">
+        <DarkLightMode/>
+      </div>
     </div>
   );
 };

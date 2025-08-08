@@ -1,18 +1,26 @@
+/* Base Header Styles - Optimized for Performance */
 .header-container {
   background-color: transparent;
   height: 120px;
-  transition: background-image 0.5s ease; /* Removed backdrop-filter transition */
+  /* Optimize for hardware acceleration */
+  transform: translateZ(0);
+  will-change: background-image;
+  /* Smooth transition but only for necessary properties */
+  transition: background-image 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-container.scrolled {
-  backdrop-filter: blur(10px); /* Reduced blur from 20px to 10px */
-  -webkit-backdrop-filter: blur(10px);
+  /* Alternative to backdrop-filter for better performance */
   background-image: linear-gradient(
     180deg,
-    rgba(255, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.1)
+    rgba(255, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15)
   );
-  will-change: backdrop-filter;
+  /* Add subtle shadow instead of backdrop-filter for depth */
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  /* If you really need backdrop-filter, use minimal blur */
+  /* backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px); */
 }
 
 .nav-sections ul {
@@ -24,7 +32,10 @@
 .nav-sections a {
   cursor: pointer;
   position: relative;
-  transition: color 0.3s ease;
+  /* Optimize transition timing */
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Force hardware acceleration for hover elements */
+  transform: translateZ(0);
 }
 
 .nav-sections a:hover {
@@ -36,16 +47,20 @@
   position: absolute;
   bottom: -6px;
   left: 50%;
-  transform: translateX(-50%) scaleX(0);
   width: 100%;
   height: 3px;
   background-color: var(--button-bg);
+  /* Optimize transforms for GPU */
+  transform: translateX(-50%) scaleX(0) translateZ(0);
   transform-origin: center;
-  transition: transform 0.3s ease;
+  /* Faster, smoother transition */
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Force GPU layer */
+  will-change: transform;
 }
 
 .nav-sections a:hover::before {
-  transform: translateX(-50%) scaleX(1);
+  transform: translateX(-50%) scaleX(1) translateZ(0);
   background-color: var(--button-bg);
 }
 
@@ -64,7 +79,10 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  transition: color 0.5s ease-in-out;
+  /* Optimize for hardware acceleration */
+  transform: translateZ(0);
+  /* Faster transition */
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-container button::before {
@@ -76,7 +94,11 @@
   height: 100%;
   background-color: #ff6b35;
   border: none;
-  transition: width 0.4s ease-in-out;
+  /* Optimize for GPU rendering */
+  transform: translateZ(0);
+  will-change: width;
+  /* Smoother, faster transition */
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-container button:hover::before {
@@ -85,7 +107,10 @@
 
 .button-container button span {
   position: relative;
-  transition: color 0.5s ease-in-out;
+  /* Match button transition timing */
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Force GPU layer */
+  transform: translateZ(0);
 }
 
 .button-container button:hover span {
@@ -95,16 +120,16 @@
 @keyframes headerFadein {
   from {
     opacity: 0;
-    transform: translateY(-50px);
+    transform: translateY(-50px) translateZ(0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) translateZ(0);
   }
 }
 
 .headerFade-in {
-  animation: headerFadein 1s ease forwards;
+  animation: headerFadein 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .navbar-toggle {
@@ -116,6 +141,13 @@
   position: fixed;
   top: 30px;
   right: 0;
+  /* Optimize for mobile interactions */
+  transform: translateZ(0);
+  transition: transform 0.2s ease;
+}
+
+.navbar-toggle:active {
+  transform: translateZ(0) scale(0.95);
 }
 
 .bar {
@@ -128,17 +160,21 @@
     rgba(255, 0, 0, 0.6),
     rgba(0, 0, 0, 0.6)
   );
-  transition: all 0.4s ease-in-out;
+  /* Optimize transition */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  /* Force hardware acceleration */
+  transform: translateZ(0);
 }
 
-/* Media Queries with optimizations */
+/* Media Queries - Optimized for Performance */
 
 @media (min-width: 1281px) and (max-width: 1440px) {
   .logo-container img {
     width: 100%;
     max-width: 50%;
   }
+  
   .nav-sections ul {
     font-size: 1.2rem;
   }
@@ -160,6 +196,11 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+  /* Reduce transitions for better mobile performance */
+  .header-container {
+    transition: background-image 0.2s ease;
+  }
+  
   .logo-container img {
     width: 100%;
     max-width: 38%;
@@ -177,25 +218,27 @@
     right: 0;
     padding: 5rem 1.5rem;
     background: transparent;
-    backdrop-filter: blur(10px); /* reduced from 40px */
-    -webkit-backdrop-filter: blur(10px);
+    /* Optimized backdrop-filter - use sparingly */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     background-image: linear-gradient(
       360deg,
       rgba(255, 0, 0, 0.15),
       rgba(0, 0, 0, 0.15)
     );
-    transform: translateX(100vw);
-    transition: transform 0.4s ease; /* transition only transform */
+    /* Optimize transform for GPU */
+    transform: translateX(100vw) translateZ(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 900;
-    will-change: transform, backdrop-filter;
+    will-change: transform;
   }
 
   .nav-sections ul.active {
-    transform: translateX(0);
+    transform: translateX(0) translateZ(0);
   }
 
   .navbar-toggle.active .bar:nth-child(1) {
-    transform: rotate(45deg) translateY(12px);
+    transform: rotate(45deg) translateY(12px) translateZ(0);
   }
 
   .navbar-toggle.active .bar:nth-child(2) {
@@ -203,7 +246,7 @@
   }
 
   .navbar-toggle.active .bar:nth-child(3) {
-    transform: rotate(-45deg) translateY(-12px);
+    transform: rotate(-45deg) translateY(-12px) translateZ(0);
   }
 
   .button-container {
@@ -221,6 +264,11 @@
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
+  /* Further optimize for smaller screens */
+  .header-container {
+    transition: background-image 0.2s ease;
+  }
+  
   .logo-container img {
     width: 100%;
     max-width: 35%;
@@ -238,25 +286,27 @@
     right: 0;
     padding: 5rem 1.5rem;
     background: transparent;
-    backdrop-filter: blur(10px); /* reduced from 40px */
-    -webkit-backdrop-filter: blur(10px);
+    /* Reduced blur for better performance */
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     background-image: linear-gradient(
       360deg,
       rgba(255, 0, 0, 0.15),
       rgba(0, 0, 0, 0.15)
     );
-    transform: translateX(100vw);
-    transition: transform 0.4s ease;
+    /* Optimize transform */
+    transform: translateX(100vw) translateZ(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 900;
-    will-change: transform, backdrop-filter;
+    will-change: transform;
   }
 
   .nav-sections ul.active {
-    transform: translateX(0);
+    transform: translateX(0) translateZ(0);
   }
 
   .navbar-toggle.active .bar:nth-child(1) {
-    transform: rotate(45deg) translateY(12px);
+    transform: rotate(45deg) translateY(12px) translateZ(0);
   }
 
   .navbar-toggle.active .bar:nth-child(2) {
@@ -264,7 +314,7 @@
   }
 
   .navbar-toggle.active .bar:nth-child(3) {
-    transform: rotate(-45deg) translateY(-12px);
+    transform: rotate(-45deg) translateY(-12px) translateZ(0);
   }
 
   .button-container {
@@ -282,6 +332,11 @@
 }
 
 @media (max-width: 480px) {
+  /* Maximum optimization for smallest screens */
+  .header-container {
+    transition: background-image 0.15s ease;
+  }
+  
   .logo-container img {
     width: 100%;
     max-width: 28%;
@@ -299,25 +354,27 @@
     right: 0;
     padding: 5rem 1.5rem;
     background: transparent;
-    backdrop-filter: blur(10px); /* reduced from 40px */
-    -webkit-backdrop-filter: blur(10px);
+    /* Minimal blur for best performance */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     background-image: linear-gradient(
       360deg,
       rgba(255, 0, 0, 0.15),
       rgba(0, 0, 0, 0.15)
     );
-    transform: translateX(100vw);
-    transition: transform 0.4s ease;
+    /* Fastest transform */
+    transform: translateX(100vw) translateZ(0);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 900;
-    will-change: transform, backdrop-filter;
+    will-change: transform;
   }
 
   .nav-sections ul.active {
-    transform: translateX(0);
+    transform: translateX(0) translateZ(0);
   }
 
   .navbar-toggle.active .bar:nth-child(1) {
-    transform: rotate(45deg) translateY(12px);
+    transform: rotate(45deg) translateY(12px) translateZ(0);
   }
 
   .navbar-toggle.active .bar:nth-child(2) {
@@ -325,7 +382,7 @@
   }
 
   .navbar-toggle.active .bar:nth-child(3) {
-    transform: rotate(-45deg) translateY(-12px);
+    transform: rotate(-45deg) translateY(-12px) translateZ(0);
   }
 
   .button-container {
@@ -339,5 +396,29 @@
 
   .dark-light-toggle-container {
     margin-right: 20px;
+  }
+}
+
+/* Performance optimization for reduced motion users */
+@media (prefers-reduced-motion: reduce) {
+  .header-container,
+  .nav-sections a,
+  .nav-sections a::before,
+  .nav-sections ul,
+  .button-container button,
+  .button-container button::before,
+  .button-container button span,
+  .bar,
+  .navbar-toggle {
+    transition: none !important;
+  }
+  
+  .headerFade-in {
+    animation: none !important;
+  }
+  
+  .nav-sections ul {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 }

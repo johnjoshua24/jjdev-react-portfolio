@@ -5,8 +5,7 @@ import igicon from "../assets/instagram-1-svgrepo-com.svg";
 import github from "../assets/github-color-svgrepo-com.svg";
 import footerlogo from "../assets/jjdev-logo.png";
 import { Link } from "react-router-dom";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
+
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -28,10 +27,9 @@ const Footer = () => {
       </div>
 
       <div className="footer-logo flex flex-col items-center justify-center">
-        <LazyLoadImage
+        <img
           src={footerlogo}
           alt="Footer Logo"
-          effect="blur"
           onClick={() => {
             reloadPage();
             window.location.href = "/";
