@@ -8,27 +8,49 @@ import '../globals/global.css'
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const lastScrollY = useRef(0);
   const ticking = useRef(false);
 
-  // Throttled scroll handler using requestAnimationFrame
+  // Ultra-optimized scroll handler with debouncing
   const handleScroll = useCallback(() => {
+    const currentScrollY = window.scrollY;
+    
+    // Only process if scroll position actually changed significantly
+    if (Math.abs(currentScrollY - lastScrollY.current) < 5) {
+      return;
+    }
+    
+    lastScrollY.current = currentScrollY;
+    
     if (!ticking.current) {
-      requestAnimationFrame(() => {
-        const shouldBeScrolled = window.scrollY > 50;
-        if (shouldBeScrolled !== scrolled) {
-          setScrolled(shouldBeScrolled);
-        }
+      // Use setTimeout with 0ms for immediate execution in next tick
+      setTimeout(() => {
+        const shouldBeScrolled = currentScrollY > 50;
+        setScrolled(prev => {
+          // Only update state if it actually changed
+          return prev !== shouldBeScrolled ? shouldBeScrolled : prev;
+        });
         ticking.current = false;
-      });
+      }, 0);
       ticking.current = true;
     }
-  }, [scrolled]);
+  }, []);
 
   useEffect(() => {
-    // Add passive listener for better performance
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    // Set initial state immediately
+    setScrolled(window.scrollY > 50);
+    
+    // Use passive listener with optimized options
+    const options = {
+      passive: true,
+      capture: false
+    };
+    
+    window.addEventListener("scroll", handleScroll, options);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll, options);
+    };
   }, [handleScroll]);
 
   const reloadPage = useCallback(() => {
@@ -49,15 +71,17 @@ const Header = () => {
   }, []);
 
   return (
-    <div
+    <header
       className={`header-container headerFade-in flex items-center justify-between p-10 fixed top-0 w-full z-50 ${
         scrolled ? "scrolled" : ""
       }`}
       style={{
-        // Add CSS properties for smoother rendering
-        transform: 'translateZ(0)', // Force hardware acceleration
+        // Aggressive hardware acceleration
+        transform: 'translate3d(0, 0, 0)',
         backfaceVisibility: 'hidden',
-        perspective: '1000px'
+        perspective: '1000px',
+        // Force compositing layer
+        willChange: scrolled ? 'auto' : 'background-image'
       }}
     >
       <div className="logo-container">
@@ -66,6 +90,10 @@ const Header = () => {
           src={logo}
           alt="JJ Dev Logo"
           onClick={handleLogoClick}
+          style={{
+            transform: 'translateZ(0)',
+            willChange: 'transform'
+          }}
         />
       </div>
 
@@ -73,19 +101,29 @@ const Header = () => {
         className={`navbar-toggle ${menuOpen ? "active" : ""}`}
         onClick={toggleMenu}
         aria-label="Toggle navigation menu"
+        style={{
+          transform: 'translateZ(0)',
+          willChange: 'transform'
+        }}
       >
         <span className="bar"></span>
         <span className="bar"></span>
         <span className="bar"></span>
       </button>
 
-      <div className="nav-sections">
-        <ul className={`flex items-center gap-12 ${menuOpen ? "active" : ""}`}>
+      <nav className="nav-sections">
+        <ul 
+          className={`flex items-center gap-12 ${menuOpen ? "active" : ""}`}
+          style={{
+            transform: 'translateZ(0)',
+            willChange: menuOpen ? 'transform' : 'auto'
+          }}
+        >
           <li>
             <Link
               to="hero-section"
               smooth={true}
-              duration={300}
+              duration={600}
               offset={-90}
               spy={true}
               activeClass="active"
@@ -98,7 +136,7 @@ const Header = () => {
             <Link
               to="about-section"
               smooth={true}
-              duration={300}
+              duration={600}
               offset={-90}
               spy={true}
               activeClass="active"
@@ -111,7 +149,7 @@ const Header = () => {
             <Link
               to="tools-section"
               smooth={true}
-              duration={300}
+              duration={600}
               offset={-90}
               spy={true}
               activeClass="active"
@@ -124,7 +162,7 @@ const Header = () => {
             <Link
               to="project-section"
               smooth={true}
-              duration={300}
+              duration={600}
               offset={-90}
               spy={true}
               activeClass="active"
@@ -137,7 +175,7 @@ const Header = () => {
             <Link
               to="contact-section"
               smooth={true}
-              duration={300}
+              duration={600}
               offset={-90}
               spy={true}
               activeClass="active"
@@ -147,19 +185,19 @@ const Header = () => {
             </Link>
           </li>
         </ul>
-      </div>
+      </nav>
 
       <div className="button-container">
         <Link
           to="contact-section"
           smooth={true}
-          duration={300}
+          duration={600}
           offset={-90}
           spy={true}
           activeClass="active"
           onClick={closeMenu}
         >
-          <button>
+          <button style={{ transform: 'translateZ(0)' }}>
             <span>Connect With Me</span>
           </button>
         </Link>
@@ -168,7 +206,7 @@ const Header = () => {
       <div className="dark-light-toggle-container">
         <DarkLightMode/>
       </div>
-    </div>
+    </header>
   );
 };
 
