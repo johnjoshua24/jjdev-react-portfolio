@@ -16,13 +16,13 @@ const Footer = () => {
       <hr />
       <div className="footer-socials flex items-center justify-center gap-4">
         <a href="https://www.facebook.com/BoyGigil24" target="_blank">
-          <img src={fbicon} />
+          <img src={fbicon} alt="Facebook"/>
         </a>
         <a href="https://www.instagram.com/boygigil24/" target="_blank">
-          <img src={igicon} />
+          <img src={igicon} alt="Instagram"/>
         </a>
         <a href="https://github.com/johnjoshua24" target="_blank">
-          <img src={github} />
+          <img src={github} alt="GitHub"/>
         </a>
       </div>
 

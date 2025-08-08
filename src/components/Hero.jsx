@@ -81,14 +81,14 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img className="fbicon" src={fbicon} />
+              <img className="fbicon" src={fbicon}  alt="Facebook"/>
             </a>
             <a
               href="https://www.instagram.com/boygigil24/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img className="igicon" src={igicon} />
+              <img className="igicon" src={igicon}  alt="Instagram"/>
             </a>
             <a
               href="https://github.com/johnjoshua24"
@@ -96,7 +96,7 @@ const Hero = () => {
               rel="noopener noreferrer"
             >
               {" "}
-              <img className="githubicon" src={github} />
+              <img className="githubicon" src={github} alt="GitHub"/>
             </a>
           </div>
           <div className="hero-button-container flex items-start justify-start mt-10">

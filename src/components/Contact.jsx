@@ -101,18 +101,18 @@ const Contact = () => {
           }}
         >
           <div className="address-container flex gap-3">
-            <img src={locationicon} />
+            <img src={locationicon} alt="location"/>
             <p>
               Address // Santa Lucia City of San Fernando Pampanga, Philippines,
               2000
             </p>
           </div>
           <div className="phone-container flex gap-3">
-            <img src={callicon} />
+            <img src={callicon} alt="phone"/>
             <p>Phone // (+63) 9302738382</p>
           </div>
           <div className="email-container flex gap-3">
-            <img src={emailicon} />
+            <img src={emailicon} alt="email"/>
             <p>
               E-Mail //{" "}
               <a href="mailto:canlas.johnjoshua24@gmail.com">
