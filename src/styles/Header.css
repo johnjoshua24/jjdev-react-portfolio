@@ -1,47 +1,41 @@
-/* Ultra-Optimized Header Styles - Zero Delay */
+/* Base Header Styles - Optimized for Performance */
 .header-container {
   background-color: transparent;
   height: 120px;
-  /* Aggressive hardware acceleration */
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-  /* Immediate transition - no delay */
-  transition: background-image 0.1s linear;
-  /* Force GPU layer creation */
+  /* Optimize for hardware acceleration */
+  transform: translateZ(0);
   will-change: background-image;
+  /* Smooth transition but only for necessary properties */
+  transition: background-image 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-container.scrolled {
-  /* Solid background instead of backdrop-filter for instant response */
-  background-color: rgba(20, 20, 20, 0.95);
+  /* Alternative to backdrop-filter for better performance */
   background-image: linear-gradient(
     180deg,
-    rgba(255, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.1)
+    rgba(255, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15)
   );
-  /* Subtle shadow for depth */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  /* Remove will-change after transition */
-  will-change: auto;
+  /* Add subtle shadow instead of backdrop-filter for depth */
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  /* If you really need backdrop-filter, use minimal blur */
+  /* backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px); */
 }
 
 .nav-sections ul {
   color: var(--muted-info);
   font-size: 20px;
   font-weight: 500;
-  /* Force hardware acceleration */
-  transform: translateZ(0);
 }
 
 .nav-sections a {
   cursor: pointer;
   position: relative;
-  /* Ultra-fast transition */
-  transition: color 0.1s linear;
-  /* Hardware acceleration */
+  /* Optimize transition timing */
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Force hardware acceleration for hover elements */
   transform: translateZ(0);
-  will-change: color;
 }
 
 .nav-sections a:hover {
@@ -56,16 +50,18 @@
   width: 100%;
   height: 3px;
   background-color: var(--button-bg);
-  /* Instant transform with GPU */
+  /* Optimize transforms for GPU */
   transform: translateX(-50%) scaleX(0) translateZ(0);
   transform-origin: center;
-  /* Immediate response */
-  transition: transform 0.1s linear;
+  /* Faster, smoother transition */
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Force GPU layer */
   will-change: transform;
 }
 
 .nav-sections a:hover::before {
   transform: translateX(-50%) scaleX(1) translateZ(0);
+  background-color: var(--button-bg);
 }
 
 .nav-sections a.active {
@@ -83,10 +79,10 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  /* Hardware acceleration */
+  /* Optimize for hardware acceleration */
   transform: translateZ(0);
-  /* Fast transition */
-  transition: color 0.15s linear;
+  /* Faster transition */
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-container button::before {
@@ -98,11 +94,11 @@
   height: 100%;
   background-color: #ff6b35;
   border: none;
-  /* GPU optimization */
+  /* Optimize for GPU rendering */
   transform: translateZ(0);
   will-change: width;
-  /* Immediate response */
-  transition: width 0.15s linear;
+  /* Smoother, faster transition */
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-container button:hover::before {
@@ -111,8 +107,9 @@
 
 .button-container button span {
   position: relative;
-  /* Match timing */
-  transition: color 0.15s linear;
+  /* Match button transition timing */
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Force GPU layer */
   transform: translateZ(0);
 }
 
@@ -123,7 +120,7 @@
 @keyframes headerFadein {
   from {
     opacity: 0;
-    transform: translateY(-20px) translateZ(0);
+    transform: translateY(-50px) translateZ(0);
   }
   to {
     opacity: 1;
@@ -132,7 +129,7 @@
 }
 
 .headerFade-in {
-  animation: headerFadein 0.5s linear forwards;
+  animation: headerFadein 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .navbar-toggle {
@@ -144,9 +141,9 @@
   position: fixed;
   top: 30px;
   right: 0;
-  /* Instant response */
+  /* Optimize for mobile interactions */
   transform: translateZ(0);
-  transition: transform 0.1s linear;
+  transition: transform 0.2s ease;
 }
 
 .navbar-toggle:active {
@@ -163,19 +160,19 @@
     rgba(255, 0, 0, 0.6),
     rgba(0, 0, 0, 0.6)
   );
-  /* Immediate transition */
-  transition: all 0.1s linear;
+  /* Optimize transition */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  /* Force hardware acceleration */
   transform: translateZ(0);
 }
 
-/* Ultra-Optimized Media Queries */
+/* Media Queries - Optimized for Performance */
 
 @media (min-width: 1281px) and (max-width: 1440px) {
   .logo-container img {
     width: 100%;
     max-width: 50%;
-    transform: translateZ(0);
   }
   
   .nav-sections ul {
@@ -191,7 +188,6 @@
   .logo-container img {
     width: 100%;
     max-width: 40%;
-    transform: translateZ(0);
   }
 
   .button-container {
@@ -200,14 +196,14 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+  /* Reduce transitions for better mobile performance */
   .header-container {
-    transition: background-image 0.1s linear;
+    transition: background-image 0.2s ease;
   }
   
   .logo-container img {
     width: 100%;
     max-width: 38%;
-    transform: translateZ(0);
   }
 
   .nav-sections ul {
@@ -221,16 +217,18 @@
     top: 0;
     right: 0;
     padding: 5rem 1.5rem;
-    /* Solid background for instant response */
-    background-color: rgba(15, 15, 15, 0.98);
+    background: transparent;
+    /* Optimized backdrop-filter - use sparingly */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     background-image: linear-gradient(
       360deg,
       rgba(255, 0, 0, 0.15),
       rgba(0, 0, 0, 0.15)
     );
-    /* Ultra-fast slide */
+    /* Optimize transform for GPU */
     transform: translateX(100vw) translateZ(0);
-    transition: transform 0.15s linear;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 900;
     will-change: transform;
   }
@@ -266,14 +264,14 @@
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
+  /* Further optimize for smaller screens */
   .header-container {
-    transition: background-image 0.1s linear;
+    transition: background-image 0.2s ease;
   }
   
   .logo-container img {
     width: 100%;
     max-width: 35%;
-    transform: translateZ(0);
   }
 
   .nav-sections ul {
@@ -287,16 +285,18 @@
     top: 0;
     right: 0;
     padding: 5rem 1.5rem;
-    /* Solid background */
-    background-color: rgba(15, 15, 15, 0.98);
+    background: transparent;
+    /* Reduced blur for better performance */
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     background-image: linear-gradient(
       360deg,
       rgba(255, 0, 0, 0.15),
       rgba(0, 0, 0, 0.15)
     );
-    /* Instant slide */
+    /* Optimize transform */
     transform: translateX(100vw) translateZ(0);
-    transition: transform 0.1s linear;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 900;
     will-change: transform;
   }
@@ -332,14 +332,14 @@
 }
 
 @media (max-width: 480px) {
+  /* Maximum optimization for smallest screens */
   .header-container {
-    transition: background-image 0.05s linear;
+    transition: background-image 0.15s ease;
   }
   
   .logo-container img {
     width: 100%;
     max-width: 28%;
-    transform: translateZ(0);
   }
 
   .nav-sections ul {
@@ -353,16 +353,18 @@
     top: 0;
     right: 0;
     padding: 5rem 1.5rem;
-    /* Solid background for instant response */
-    background-color: rgba(15, 15, 15, 0.98);
+    background: transparent;
+    /* Minimal blur for best performance */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     background-image: linear-gradient(
       360deg,
       rgba(255, 0, 0, 0.15),
       rgba(0, 0, 0, 0.15)
     );
-    /* Immediate slide */
+    /* Fastest transform */
     transform: translateX(100vw) translateZ(0);
-    transition: transform 0.05s linear;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 900;
     will-change: transform;
   }
@@ -397,11 +399,26 @@
   }
 }
 
-/* Force disable all animations for maximum performance if needed */
+/* Performance optimization for reduced motion users */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  .header-container,
+  .nav-sections a,
+  .nav-sections a::before,
+  .nav-sections ul,
+  .button-container button,
+  .button-container button::before,
+  .button-container button span,
+  .bar,
+  .navbar-toggle {
+    transition: none !important;
+  }
+  
+  .headerFade-in {
+    animation: none !important;
+  }
+  
+  .nav-sections ul {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 }
