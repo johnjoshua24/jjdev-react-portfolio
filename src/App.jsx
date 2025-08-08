@@ -15,6 +15,7 @@ const Contact = lazy(() => import("./components/Contact"));
 const Footer = lazy(() => import("./components/Footer"));
 const TermsOfService = lazy(() => import("./components/TermsofService"));
 const PrivacyPolicy = lazy(() => import("./components/PrivacyPolicy"));
+import NotFound from "./components/NotFound"; // <-- Import your 404 page here
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -56,6 +57,9 @@ function App() {
           />
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
+
+          {/* Catch-all route for 404 */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
 
         <Footer />
