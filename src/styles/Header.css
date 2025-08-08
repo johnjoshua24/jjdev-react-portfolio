@@ -399,26 +399,3 @@
   }
 }
 
-/* Performance optimization for reduced motion users */
-@media (prefers-reduced-motion: reduce) {
-  .header-container,
-  .nav-sections a,
-  .nav-sections a::before,
-  .nav-sections ul,
-  .button-container button,
-  .button-container button::before,
-  .button-container button span,
-  .bar,
-  .navbar-toggle {
-    transition: none !important;
-  }
-  
-  .headerFade-in {
-    animation: none !important;
-  }
-  
-  .nav-sections ul {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-}
