@@ -85,7 +85,7 @@ const Header = () => {
             <Link
               to="hero-section"
               smooth={true}
-              duration={600}
+              duration={300}
               offset={-90}
               spy={true}
               activeClass="active"
@@ -98,7 +98,7 @@ const Header = () => {
             <Link
               to="about-section"
               smooth={true}
-              duration={600}
+              duration={300}
               offset={-90}
               spy={true}
               activeClass="active"
@@ -111,7 +111,7 @@ const Header = () => {
             <Link
               to="tools-section"
               smooth={true}
-              duration={600}
+              duration={300}
               offset={-90}
               spy={true}
               activeClass="active"
@@ -124,7 +124,7 @@ const Header = () => {
             <Link
               to="project-section"
               smooth={true}
-              duration={600}
+              duration={300}
               offset={-90}
               spy={true}
               activeClass="active"
@@ -137,7 +137,7 @@ const Header = () => {
             <Link
               to="contact-section"
               smooth={true}
-              duration={600}
+              duration={300}
               offset={-90}
               spy={true}
               activeClass="active"
@@ -153,7 +153,7 @@ const Header = () => {
         <Link
           to="contact-section"
           smooth={true}
-          duration={600}
+          duration={300}
           offset={-90}
           spy={true}
           activeClass="active"
