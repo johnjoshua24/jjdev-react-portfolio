@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import "../styles/Projects.css";
-import coming1 from "../assets/coming-soon1.jpg";
 import coming2 from "../assets/coming-soon2.jpg";
 import coming3 from "../assets/coming-soon3.jpg";
+import project1 from '../assets/project1.png'
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import '../globals/global.css'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -10,11 +10,11 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const projectsData = [
   {
-    projectImage: coming1,
-    projectTitle: "Coming Soon 1",
+    projectImage: project1,
+    projectTitle: "Marci Metzger Homes",
     projectDescription:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ducimus quae, rem explicabo harum quo dolor aspernatur hic animi corrupti iure modi, tempore eum, consequatur labore amet maxime! Laboriosam, accusantium!",
-    technologies: ["HTML", "CSS", "JavaScript"],
+      "A fully responsive, single-page website clone using React.js and Tailwind CSS for a web design assessment at Luxury Presence",
+    technologies: ["HTML", "CSS", "ReactJS","TailwindCSS", "Framer Motion"],
   },
   {
     projectImage: coming2,
@@ -55,14 +55,31 @@ const projectsTechnologiesSlideAnimation = useSpring(useTransform(scrollYProgres
   return (
     <div className="projects-template-container flex items-center justify-center mt-10" ref={projectTemplateContainerRef}>
       <div className="template-sections flex items-center justify-center gap-5">
-        <motion.div className="project-image-sections flex items-center gap-5" style={{opacity: projectsImageOpacityAnimation, x: projectsImageSlideAnimation}}>
-           <LazyLoadImage
-    src={project.projectImage}
-    alt={project.projectTitle}
-    effect="blur"     
-    wrapperClassName="" 
-  />
-        </motion.div>
+       <motion.div
+  className="project-image-sections flex items-center gap-5"
+  style={{ opacity: projectsImageOpacityAnimation, x: projectsImageSlideAnimation }}
+>
+  {project.projectTitle === "Marci Metzger Homes" ? (
+    <a
+      href="https://luxurypresence-revamp-project.vercel.app/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <LazyLoadImage
+        src={project.projectImage}
+        alt={project.projectTitle}
+        effect="blur"
+      />
+    </a>
+  ) : (
+    <LazyLoadImage
+      src={project.projectImage}
+      alt={project.projectTitle}
+      effect="blur"
+    />
+  )}
+</motion.div>
+
 
         <div className="project-texts-descriptions flex flex-col justify-center gap-6 w-full max-w-[500px]">
           <motion.div className="project-title flex items-center" style={{opacity: projectsTitleOpacityAnimation, x: projectsTitleSlideAnimation}}>
